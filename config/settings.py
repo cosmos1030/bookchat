@@ -14,8 +14,19 @@ from pathlib import Path
 import os
 import environ
 
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+env = environ.Env(DEBUG=(bool, True)) # 환경 변수를 이용할 수 있는 상태로 세팅
+environ.Env.read_env(
+    env_file=os.path.join(BASE_DIR, '.env')
+) # 어떤 파일에서 불러올건지 결정
+
+OPENAI_KEY = env('OPENAI_KEY')
+
+DEBUG = env('DEBUG') # 배포시 DEBUG 반드시 끄기!
 
 
 # Quick-start development settings - unsuitable for production
@@ -91,6 +102,7 @@ WSGI_APPLICATION = "config.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -98,7 +110,7 @@ DATABASES = {
         'PORT': '30915',
         'NAME': 'postgresql',
         'USER': 'root',
-        'PASSWORD':os.environ.get("PASSWORD"),
+        'PASSWORD': env('PASSWORD'),
     }
 }
 
@@ -151,16 +163,8 @@ MEDIA_URL = 'media/' # pdf 파일 업로드 시 저장 위치
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000/']
+CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000/', 'https://*.cloudtype.app']
 
 LOGIN_REDIRECT_URL = "/" # 자동으로 생성된 login 창에서 로그인 한 후 index 페이지로 가도록 함.
 LOGOUT_REDIRECT_URL = "/"
 
-env = environ.Env(DEBUG=(bool, True)) # 환경 변수를 이용할 수 있는 상태로 세팅
-environ.Env.read_env(
-    env_file=os.path.join(BASE_DIR, '.env')
-) # 어떤 파일에서 불러올건지 결정
-
-OPENAI_KEY = env('OPENAI_KEY')
-
-DEBUG = env('DEBUG') # 배포시 DEBUG 반드시 끄기!

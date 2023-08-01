@@ -18,6 +18,7 @@ import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+ROOT_DIR = os.path.dirname(BASE_DIR)
 
 env = environ.Env(DEBUG=(bool, True)) # 환경 변수를 이용할 수 있는 상태로 세팅
 environ.Env.read_env(
@@ -71,6 +72,7 @@ CHANNEL_LAYERS = {
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -151,9 +153,13 @@ USE_TZ = True
 STATIC_URL = "static/"
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
-    os.path.join(BASE_DIR, 'bookchat', 'static'),
+    os.path.join(BASE_DIR, 'bookchat', 'static')
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, '.static_root')
+STATIC_ROOT = os.path.join(ROOT_DIR, 'static')
+WHITENOISE_USE_FINDERS = True
+WHITENOISE_MANIFEST_STRICT = False
+WHITENOISE_ALLOW_ALL_ORIGINS = True
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 MEDIA_URL = 'media/' # pdf 파일 업로드 시 저장 위치
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

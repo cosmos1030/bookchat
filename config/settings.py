@@ -163,7 +163,7 @@ MEDIA_URL = 'media/' # pdf 파일 업로드 시 저장 위치
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000/', 'https://*.cloudtype.app']
+CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000/', 'https://*.cloudtype.app', 'https://port-0-bookchat-eu1k2llksdf6ji.sel4.cloudtype.app']
 
 LOGIN_REDIRECT_URL = "/" # 자동으로 생성된 login 창에서 로그인 한 후 index 페이지로 가도록 함.
 LOGOUT_REDIRECT_URL = "/"

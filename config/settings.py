@@ -156,7 +156,7 @@ STATIC_URL = "static/"
 #     os.path.join(BASE_DIR, 'static'),
 #     os.path.join(BASE_DIR, 'bookchat', 'static')
 # ]
-STATIC_ROOT = os.path.join(ROOT_DIR, 'static')
+# STATIC_ROOT = os.path.join(ROOT_DIR, 'static')
 # WHITENOISE_USE_FINDERS = True
 # WHITENOISE_MANIFEST_STRICT = False
 # WHITENOISE_ALLOW_ALL_ORIGINS = True

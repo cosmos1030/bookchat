@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form action="{% url 'common:login' %}" method="post">
+        {% csrf_token %}
+        <label for="username">ID</label>
+        <input type="text" name="username" id="username">
+        <label for="password">PW</label>
+        <input type="password" name="password" id="password">
+        <button class="btn btn-dark">LOGIN</button>
+    </form>
+{% endblock %}

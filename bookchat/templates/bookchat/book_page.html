@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1>{{ book.title }}</h1>
+
+<div class="chat-container">
+    <div class="chat-messages" id="chatMessages">
+      <!-- 메시지가 표시될 영역 -->
+    </div>
+    <div class="user-input">
+      <input type="text" id="userMessage" placeholder="메시지를 입력하세요...">
+      <button type="button" id="submit">전송</button>
+    </div>
+  </div>
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="{% static 'js/script.js' %}"></script>
+
+{% endblock %}

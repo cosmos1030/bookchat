@@ -13,7 +13,6 @@ from .generate_model import ChainManager
 def index(request):
     books = Books.objects.all() # DB의 모든 책 정보 불러오기
     path = settings.MEDIA_ROOT
-    img_list = os.listdir(path+'/img')
     return render(request, 'bookchat/index.html', {
         "books": books,
         "path": path

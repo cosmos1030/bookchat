@@ -1,0 +1,32 @@
+// $primary: red;
+
+@import "../bootstrap/css/bootstrap";
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+section {
+    min-height: 100vh;
+}
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.navbar {
+    height: 77px;
+} 
+
+button {
+    height: 50px;
+}
+
+.nav-link {
+    color: black;
+}
+
+.navbar-toggler-icon {
+    color: black;
+}

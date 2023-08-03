@@ -51,6 +51,7 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
+    'sass_processor', # scss 컴파일
     'daphne', # 웹소켓
     'channels', # 웹소켓 이용을 위한 모듈
     'common',
@@ -158,10 +159,17 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'bookchat', 'static')
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, '.static_root/')
-# WHITENOISE_USE_FINDERS = True
-# WHITENOISE_MANIFEST_STRICT = False
-# WHITENOISE_ALLOW_ALL_ORIGINS = True
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+
+
+SASS_PROCESSOR_ENABLED = True
+SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, '.static_root/')
+SASS_OUTPUT_STYLE = 'compact'
+
+STATICFILES_FINDERS  = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'sass_processor.finders.CssFinder',
+]
 
 MEDIA_URL = 'media/' # pdf 파일 업로드 시 저장 위치
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

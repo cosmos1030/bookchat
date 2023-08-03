@@ -1,16 +1,18 @@
 {% load static %}
+{% load sass_tags %}
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BookChat - 책과의 채팅</title>
+    <title>BookChatting - 책과의 채팅</title>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
     <!-- bookchat CSS -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <link href="{% sass_src 'css/common.scss' %}" rel="stylesheet" type="text/css" />
     {% block head %}
     {% endblock %}
 </head>
@@ -19,5 +21,6 @@
     
     {% block content %}
     {% endblock %}
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
 </body>
 </html>

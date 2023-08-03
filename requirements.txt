@@ -16,7 +16,10 @@ cryptography==41.0.2
 daphne==4.0.0
 dataclasses-json==0.5.13
 Django==4.2.3
+django-appconf==1.0.5
+django-compressor==4.4
 django-environ==0.10.0
+django-sass-processor==1.2.2
 faiss-cpu==1.7.4
 frozenlist==1.4.0
 greenlet==2.0.2
@@ -25,6 +28,7 @@ idna==3.4
 incremental==22.10.0
 langchain==0.0.247
 langsmith==0.0.15
+libsass==0.22.0
 marshmallow==3.20.1
 msgpack==1.0.5
 multidict==6.0.4
@@ -42,9 +46,11 @@ pydantic==1.10.12
 pyOpenSSL==23.2.0
 pypdf==3.14.0
 PyYAML==6.0.1
+rcssmin==1.1.1
 redis==4.6.0
 regex==2023.6.3
 requests==2.31.0
+rjsmin==1.2.1
 service-identity==23.1.0
 six==1.16.0
 SQLAlchemy==2.0.19
@@ -53,6 +59,7 @@ tenacity==8.2.2
 tiktoken==0.4.0
 tqdm==4.65.0
 Twisted==22.10.0
+twisted-iocpsupport==1.0.3
 txaio==23.1.1
 typing-inspect==0.9.0
 typing_extensions==4.7.1
@@ -61,4 +68,3 @@ urllib3==2.0.4
 whitenoise==6.5.0
 yarl==1.9.2
 zope.interface==6.0
-

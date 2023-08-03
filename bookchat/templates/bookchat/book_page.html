@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load sass_tags %}
+
 {% block head %}
-<link rel="stylesheet" href="{% static 'bookchat/css/styles.css' %}">
+<link href="{% sass_src 'bookchat/css/book_page.scss' %}" rel="stylesheet" type="text/css" />
 {% endblock %}
 
 {% block content %}

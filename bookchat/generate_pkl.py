@@ -28,12 +28,12 @@ def make_pickle(id): # 벡터저장소를 pkl 형태의 파일로 저장
     vectorstore = make_vectorstore(id)
     book = Books.objects.get(id=id)
     pkl_filename = book.title+'.pkl'
-    with open(os.path.join(settings.MEDIA_ROOT, 'uploads/pickles/', pkl_filename), "wb") as f:
+    with open(os.path.join(settings.MEDIA_ROOT, 'pickle/', pkl_filename), "wb") as f:
 	    pickle.dump(vectorstore, f)
             
 def save_pickle(id):
     make_pickle(id)
     book = Books.objects.get(id=id)
     pkl_filename = book.title+'.pkl'
-    book.pickle = os.path.join(settings.MEDIA_ROOT, 'uploads/pickles/', pkl_filename)
+    book.pickle = os.path.join(settings.MEDIA_ROOT, 'pickle', pkl_filename)
     book.save()

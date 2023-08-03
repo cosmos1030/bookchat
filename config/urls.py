@@ -17,10 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from bookchat.views import index
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('', include('bookchat.urls')),
     path('common/', include('common.urls')),
     path('', index, name='index'), # 로그인 후 홈페이지로 redirect를 위함
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

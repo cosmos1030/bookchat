@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% load sass_tags %}
 
 {% block head %}
@@ -42,12 +43,11 @@
                     <path d="M42.375 79.1667C42.9975 79.1688 43.6125 79.0314 44.1749 78.7646C44.7374 78.4978 45.2329 78.1084 45.625 77.625L65.75 52.625C66.3628 51.8795 66.6979 50.9443 66.6979 49.9792C66.6979 49.0141 66.3628 48.0789 65.75 47.3333L44.9167 22.3333C44.2094 21.4824 43.1931 20.9473 42.0914 20.8458C40.9896 20.7442 39.8926 21.0844 39.0417 21.7917C38.1908 22.4989 37.6557 23.5152 37.5541 24.617C37.4525 25.7188 37.7928 26.8158 38.5 27.6667L57.125 50L39.125 72.3333C38.6155 72.9449 38.2918 73.6897 38.1923 74.4795C38.0928 75.2693 38.2217 76.071 38.5636 76.7899C38.9055 77.5088 39.4461 78.1146 40.1216 78.5359C40.7971 78.9571 41.579 79.176 42.375 79.1667Z" fill="#808080"/>
                   </svg>
             </div> -->
-            <div class="col-8 books container offset-2">
+            <div class="col-md-8 books container offset-md-2">
                 <div class="row">
                     {% for book in books %}
-                    <div class="col-3 px-4 py-4 text-center">
-                        <img src="{% static 'bookchat/img/1984.png' %}" style="width: 100%;">
-                        <a href="{% url 'bookchat:book-page' book.id %}">{{ book.title }}</a>
+                    <div class="col-md-3 col-6 px-4 py-4 text-center">
+                        <a href="{% url 'bookchat:book-page' book.id %}"><img src="{{ book.book_cover.url }}" style="width: 100%;"></a>
                     </div>
                     {% endfor %}
                 </div>

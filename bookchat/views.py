@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
+from django.conf import settings
+import os
 
 from .models import Books
 from .generate_pkl import save_pickle
@@ -10,8 +12,11 @@ from .generate_model import ChainManager
 # Create your views here.
 def index(request):
     books = Books.objects.all() # DB의 모든 책 정보 불러오기
+    path = settings.MEDIA_ROOT
+    img_list = os.listdir(path+'/img')
     return render(request, 'bookchat/index.html', {
-        "books": books
+        "books": books,
+        "path": path
     })
 
 def book_page(request, id):

@@ -40,10 +40,11 @@ SECRET_KEY = "django-insecure-)o&hcq=7_3k*!vkupw#nvwyrq^!%5%mfy6@6n$)sy20lqg*p7t
 DEBUG = bool(os.environ.get("DEBUG"))
 
 ALLOWED_HOSTS = [
+    ".bookchatting.io",
     ".cloudtype.app",
     ".elasticbeanstalk.com",
-"localhost",
-"127.0.0.1",
+    "localhost",
+    "127.0.0.1",
 ]
 
 

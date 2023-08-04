@@ -9,7 +9,7 @@
     <title>BookChatting - 책과의 채팅</title>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}">
     <!-- bookchat CSS -->
     <link href="{% sass_src 'css/common.scss' %}" rel="stylesheet" type="text/css" />
     {% block head %}
@@ -20,6 +20,7 @@
     
     {% block content %}
     {% endblock %}
-    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'bootstrap\dist\js\bootstrap.min.js' %}"></script>
+
 </body>
 </html>

@@ -17,25 +17,30 @@
     {% endfor %}
 </ul>
 </div> -->
-<!-- 
+
 <section class="body1 container-fluid">
 
     <div class="row justify-content-center">
-        <div class="text-center col-6">
-            
-            <img src="{% static 'bookchat/img/thumbnail.png' %}" class="img-fluid rounded" alt="...">
+        <div class="text-center row col-md-6 col-8">
+
+            <img src="{% static 'bookchat/img/thumbnail.png' %}" class="img-fluid" alt="...">
+            <!-- <div class="col-3 align-self-center">
+                <h1>북채팅</h1>
+                <span>책과의 대화</span>
+            </div> -->
+
         </div>
 
 
     </div>
-</section> -->
+</section>
 
 <section class="bg-light">
-    <!-- <div class="menu bg-primary">
-        <div class="buttons col-4 d-flex">
-            <button class="new btn btn-rounded-top btn-light col-4 offset-4">전체도서</button>
+    <div class="menu bg-primary">
+        <div class="buttons col-6 d-flex">
+            <button class="new btn btn-rounded-top btn-light col-6 col-md-3 offset-4">전체도서</button>
         </div>
-    </div> -->
+    </div>
     <div class="container-fluid px-5">
         <div class="row">
             <!-- <div class="col-2 left-arrow">
@@ -46,7 +51,7 @@
             <div class="col-md-8 books container offset-md-2">
                 <div class="row">
                     {% for book in books %}
-                    <div class="col-md-3 col-6 px-4 py-4 text-center">
+                    <div class="col-md-3 col-6 px-5 py-5 text-center">
                         <a href="{% url 'bookchat:book-page' book.id %}"><img src="{{ book.book_cover.url }}" style="width: 100%;"></a>
                     </div>
                     {% endfor %}

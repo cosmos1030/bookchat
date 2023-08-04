@@ -29,9 +29,10 @@ class ChainManager:
         return llm
 
     def make_prompt(self):
-        system_template = """Use the following pieces of context to answer the users question shortly.
-        Given the following summaries of a long document and a question, create a final answer with references ("SOURCES"), use "SOURCES" in capital letters regardless of the number of sources.
-        If you don't know the answer, just say that "I don't know", don't try to make up an answer.
+        book = Books.objects.get(id=self.id)
+        system_template = """Use the following pieces of context to answer the user's question shortly.
+        The cotext is a book named """+ book.title + """.
+        If you don't know the answer, just say that "잘 모르겠어요.", don't try to make up an answer.
         ----------------
         {summaries}
         You MUST answer in Korean and in Markdown format:"""

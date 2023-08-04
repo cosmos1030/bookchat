@@ -79,7 +79,6 @@ function sendMessage() {
   const userMessageInput = document.getElementById('userMessage');
   const message = userMessageInput.value.trim();
   const bookId = getBookIdFromUrl();
-  console.log("씨발!")
 
   if (message !== '' && bookId) {
     displayMessage('user', message);

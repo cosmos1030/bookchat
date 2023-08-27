@@ -41,8 +41,3 @@ def send_message(request, id):
         return JsonResponse({'reply': bot_reply})
     else:
         return JsonResponse({'error': 'POST 요청만 지원합니다.'})
-
-# def chat(request, id):
-#     return render(request, 'bookchat/chat.html', {
-#         "id": id
-#     })

@@ -12,16 +12,16 @@ function getBookIdFromUrl() {
 }
 
 function showLoadingMessage() {
-  const chatMessages = document.getElementById('chatMessages');
-  const loadingDiv = document.createElement('div');
-  loadingDiv.className = 'message bot loading';
-  loadingDiv.textContent = '로딩중...';
+  const chatMessages = document.getElementById("chatMessages");
+  const loadingDiv = document.createElement("div");
+  loadingDiv.className = "message bot loading";
+  loadingDiv.textContent = "로딩중...";
   chatMessages.appendChild(loadingDiv);
   scrollToBottom();
 }
 
 function removeLoadingMessage() {
-  const loadingDiv = document.querySelector('.message.bot.loading');
+  const loadingDiv = document.querySelector(".message.bot.loading");
   if (loadingDiv) {
     loadingDiv.remove();
   }
@@ -42,47 +42,44 @@ function displayMessage(sender, message) {
   scrollToBottom();
 }
 
-
-const bookId = getBookIdFromUrl()
+const bookId = getBookIdFromUrl();
 
 const chatSocket = new WebSocket(
-  'wss://'
-  + window.location.host
-  + '/ws/chat/'
-  + bookId
-  +'/'
-)
+  "ws://" + window.location.host + "/ws/chat/" + bookId + "/"
+);
 
-chatSocket.onmessage = function(e) {
+chatSocket.onmessage = function (e) {
   const data = JSON.parse(e.data);
-  removeLoadingMessage()
-  displayMessage('bot', data.message)
-}
-
-
-
-chatSocket.onclose = function(e) {
-  console.error('Chat socket closed unexpectedly');
+  removeLoadingMessage();
+  displayMessage("bot", data.message);
 };
 
-document.querySelector('#submit').onclick = function (e) {
-  sendMessage();
+chatSocket.onclose = function (e) {
+  console.error("Chat socket closed unexpectedly");
 };
 
-document.getElementById('userMessage').addEventListener('keydown', function (e) {
-  if (e.key === 'Enter') {
+document.querySelector("#submit").onclick = function (e) {
     sendMessage();
-  }
-});
+};
+
+document
+  .getElementById("userMessage")
+  .addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+
+        sendMessage();
+
+    }
+  });
 
 function sendMessage() {
-  const userMessageInput = document.getElementById('userMessage');
+  const userMessageInput = document.getElementById("userMessage");
   const message = userMessageInput.value.trim();
   const bookId = getBookIdFromUrl();
 
-  if (message !== '' && bookId) {
-    displayMessage('user', message);
-    userMessageInput.value = '';
+  if (message !== "" && bookId) {
+    displayMessage("user", message);
+    userMessageInput.value = "";
 
     showLoadingMessage();
     chatSocket.send(

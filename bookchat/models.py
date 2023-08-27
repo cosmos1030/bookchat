@@ -15,10 +15,3 @@ class Books(models.Model):
     def __str__(self):
         return f"{self.title} ({self.author})"
 
-class Chats(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    book = models.CharField(max_length=50)
-    user_msg = models.CharField(max_length=400)
-    bot_msg = models.CharField(max_length=400)
-    def __str__(self):
-        return f"{self.book} ({self.user})"

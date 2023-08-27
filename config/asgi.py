@@ -12,12 +12,13 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "project.settings")
 django_asgi_app = get_asgi_application()
 
 import bookchat.routing
+import api.routing
 
 application = ProtocolTypeRouter(
     {
         "http": django_asgi_app,
         "websocket": AllowedHostsOriginValidator(
-            AuthMiddlewareStack(URLRouter(bookchat.routing.websocket_urlpatterns))
+            AuthMiddlewareStack(URLRouter(api.routing.websocket_urlpatterns))
         ),
     }
 )

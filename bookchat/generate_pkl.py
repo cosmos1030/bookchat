@@ -35,5 +35,5 @@ def save_pickle(id):
     make_pickle(id)
     book = Books.objects.get(id=id)
     pkl_filename = book.title+'.pkl'
-    book.pickle = os.path.join(settings.MEDIA_ROOT, 'pickle', pkl_filename)
+    book.pickle = 'pickle/'+ pkl_filename
     book.save()

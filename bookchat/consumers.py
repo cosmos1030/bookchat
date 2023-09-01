@@ -8,7 +8,7 @@ from django.core.exceptions import ObjectDoesNotExist
 
 class ChatConsumer(WebsocketConsumer):
     def make_initial_msg(self): # 첫 화면 메시지
-        initial_msg = f"안녕 {self.user.username}! 나는 {self.book.title}의 작가 {self.book.author}이야. 나랑 어떤 주제에 대해 토론하고 싶어?"
+        initial_msg = f"안녕하세요 {self.user.username}님! 저는 {self.book.title}의 작가 {self.book.author}입니다. 저와 어떤 주제에 대해 토론하고 싶나요?"
         initial_chat = Chat(user=self.user, book=self.book, msg=initial_msg, is_user_message=False)
         initial_chat.save()
         self.send(text_data=json.dumps({"message": initial_msg, "sender": "bot"}))

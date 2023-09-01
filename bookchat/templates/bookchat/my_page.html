@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load sass_tags %}
+
+{% block head %}
+<link href="{% sass_src 'bookchat/css/my_page.scss' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block content %}
+
+<h1>{{username}}님의 페이지</h1>
+<h2>현재 토론 중인 책 목록</h2>
+{% for book in books %}
+<div>
+    {{book}}
+</div>
+{% endfor %}
+<h2>토론 완료 책 목록</h2>
+{% for book in books %}
+<div>
+    {{book}}
+</div>
+{% endfor %}
+
+{% endblock %}

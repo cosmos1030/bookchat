@@ -1,4 +1,5 @@
 // 웹소켓
+const chatHistory = []
 
 function getBookIdFromUrl() {
   // Extract the bookId from the current URL using Regular Expression
@@ -46,20 +47,29 @@ function displayMessage(sender, message) {
 const bookId = getBookIdFromUrl()
 
 const chatSocket = new WebSocket(
-  'wss://'
+  'ws://'
   + window.location.host
   + '/ws/chat/'
   + bookId
   +'/'
 )
 
-chatSocket.onmessage = function(e) {
-  const data = JSON.parse(e.data);
-  removeLoadingMessage()
-  displayMessage('bot', data.message)
+chatSocket.onopen = function(e) {
+  console.log("연결성공!")
 }
 
+let info = null
 
+chatSocket.onmessage = function(e) {
+  const data = JSON.parse(e.data);
+
+  if (data.message){
+    removeLoadingMessage()
+    displayMessage(data.sender, data.message)
+    chatHistory.push({sender: data.sender, message: data.message})
+    console.log(chatHistory)
+  }
+}
 
 chatSocket.onclose = function(e) {
   console.error('Chat socket closed unexpectedly');
@@ -82,6 +92,7 @@ function sendMessage() {
 
   if (message !== '' && bookId) {
     displayMessage('user', message);
+    chatHistory.push({sender: 'user', message: message})
     userMessageInput.value = '';
 
     showLoadingMessage();
@@ -92,3 +103,24 @@ function sendMessage() {
     );
   }
 }
+
+document.querySelector('#reset').onclick = function (e){
+  axios.delete(`/api/chat/${bookId}/delete`).then(() => {
+      console.log("채팅 기록이 성공적으로 삭제되었습니다!!!");
+      window.location.reload();
+  }).catch(() => {
+      console.log("채팅 기록 삭제에 실패했습니다.");
+  });
+}
+
+document.querySelector('#end').onclick = function (e){
+  axios.post(`/api/chat/${bookId}/end/`, {chatHistory})
+  .then(() => {
+      console.log("POST 요청이 성공했습니다.");
+      window.location.href = `/result-page/${bookId}/`;
+  }).catch(() => {
+      console.log("POST 요청이 실패했습니다.");
+  });
+}
+
+export { chatHistory }

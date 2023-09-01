@@ -2,9 +2,9 @@
 {% block content %}
     <form action="{% url 'common:login' %}" method="post">
         {% csrf_token %}
-        <label for="username">ID</label>
+        <label for="username">닉네임</label>
         <input type="text" name="username" id="username">
-        <label for="password">PW</label>
+        <label for="password">비밀번호</label>
         <input type="password" name="password" id="password">
         <button class="btn btn-dark">LOGIN</button>
     </form>

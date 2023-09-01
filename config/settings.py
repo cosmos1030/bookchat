@@ -108,14 +108,21 @@ WSGI_APPLICATION = "config.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'HOST': 'svc.sel4.cloudtype.app',
+#         'PORT': '30915',
+#         'NAME': 'postgresql',
+#         'USER': 'root',
+#         'PASSWORD': env('PASSWORD'),
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'HOST': 'svc.sel4.cloudtype.app',
-        'PORT': '30915',
-        'NAME': 'postgresql',
-        'USER': 'root',
-        'PASSWORD': env('PASSWORD'),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -184,3 +191,4 @@ CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000/', 'https://*.cloudtype.app', 'ht
 LOGIN_REDIRECT_URL = "/" # 자동으로 생성된 login 창에서 로그인 한 후 index 페이지로 가도록 함.
 LOGOUT_REDIRECT_URL = "/"
 
+LOGIN_URL = '/common/login/'

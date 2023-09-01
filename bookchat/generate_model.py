@@ -9,15 +9,24 @@ from langchain.prompts.chat import (
 )
 
 from django.conf import settings
-from .models import Books
+from .models import Book, Chat
 
 class ChainManager:
-    def __init__(self, id):
+    def __init__(self, id, user):
         self.id = id
+        self.user = user
         self.chain = None
 
+    def get_previous_chat(self):
+        chat_list = Chat.objects.filter(user=self.user)
+        previous_chat = ""
+        for chat in chat_list:
+            previous_chat += chat.msg
+        print(previous_chat)
+        return previous_chat
+
     def make_retriever(self):
-        book = Books.objects.get(id=self.id)
+        book = Book.objects.get(id=self.id)
         path = os.path.join(settings.MEDIA_ROOT, book.pickle.path)
         with open(os.path.join(path), "rb") as f:
             vector_store = pickle.load(f)
@@ -29,13 +38,21 @@ class ChainManager:
         return llm
 
     def make_prompt(self):
-        book = Books.objects.get(id=self.id)
-        system_template = """Use the following pieces of context to answer the user's question shortly.
-        The cotext is a book named """+ book.title + """.
-        If you don't know the answer, just say that "잘 모르겠어요.", don't try to make up an answer.
-        ----------------
+        book = Book.objects.get(id=self.id)
+        previous_chat = self.get_previous_chat()
+        print(previous_chat)
+        system_template = '''
+        You should do a role play. You are the author of this book given to you named'''+ book.title+'''
+        You should debate with the user about the book, so you sometimes need to make questions during the debate.
+        Since you are the author of the book, you should give clear answer to the question based on the content of the book.
+        And since you are doing debate, you sometimes need to acknowledge the user's point of view.
+        The previous chatting log is '''+previous_chat+'''
         {summaries}
-        You MUST answer in Korean and in Markdown format:"""
+        You MUST answer in Korean and in Markdown format.
+        If the counterpart uses informal words, you should use informal words.
+        Informal words are shorter than formal words in Korea, like using 했어 instead of 했습니다.
+        Do not answer too long, just give your point briefly.
+        keep in mind that you are the author of the book:'''
         messages = [
             SystemMessagePromptTemplate.from_template(system_template),
             HumanMessagePromptTemplate.from_template("{question}")
@@ -45,6 +62,7 @@ class ChainManager:
 
     def make_chain(self):
         prompt = self.make_prompt()
+        self.get_previous_chat()
         chain_type_kwargs = {"prompt": prompt}
         llm = self.make_llm()
         retriever = self.make_retriever()

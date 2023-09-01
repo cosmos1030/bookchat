@@ -166,7 +166,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'bookchat', 'static')
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, '.static_root/')
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 SASS_PROCESSOR_ENABLED = True
 SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, '.static_root/')

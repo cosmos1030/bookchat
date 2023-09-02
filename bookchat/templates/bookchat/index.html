@@ -4,7 +4,8 @@
 {% load sass_tags %}
 
 {% block head %}
-<link href="{% sass_src 'bookchat/css/index.scss' %}" rel="stylesheet" type="text/css" />
+<link href="{% sass_src 'bookchat/css/index.scss' %}?v7" rel="stylesheet" type="text/css" />
+
 {% endblock %}
 
 {% block content %}
@@ -23,46 +24,43 @@
     <div class="thumbnail">
         <div class="thumbnail-texts">
             <div class="thumbnail-titles">
-                <span class="thumbnail-title">토론/소통하는 책</span>
-                <span class="thumbnail-subtitle">LANDING PAGE</span>
+                <div class="thumbnail-title">소통하는 책</div>
+                <div class="thumbnail-subtitle">새로운 독서토론</div>
             </div>
             <div class="thumbnail-explain">
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat unde, ducimus debitis ullam veritatis totam blanditiis ea pariatur reiciendis nostrum mollitia dolores odit libero necessitatibus cupiditate voluptate obcaecati distinctio iusto.</p>
+                <p>언제 어디서든 당신의 독서 토론 파트너</p>
+                <p>원하는 시간 장소에서 인공지능 챗봇과 독서토론을 해보세요.</p>
             </div>
         </div>
         <img src="{% static 'bookchat/img/landing_img.svg' %}" class="img-fluid landing-img" alt="...">
     </div>
 </section>
 
-<section class="bg-light">
-    <div class="menu bg-primary">
-        <div class="buttons col-6 d-flex">
-            <button class="new btn btn-rounded-top btn-light col-6 col-md-3 offset-4">전체도서</button>
+<div class="body2">
+    <div class="book-sector">
+    <div class="menus">
+        <div class="menu_buttons">
+            <button class="menu_button active"><span class="menu_contents active">전체보기</span></button>
+            <button class="menu_button"><span class="menu_contents">BEST</span></button>
+            <button class="menu_button"><span class="menu_contents">고전</span></button>
         </div>
+
     </div>
-    <div class="container-fluid px-5">
-        <div class="row">
-            <!-- <div class="col-2 left-arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" fill="none">
-                    <path d="M42.375 79.1667C42.9975 79.1688 43.6125 79.0314 44.1749 78.7646C44.7374 78.4978 45.2329 78.1084 45.625 77.625L65.75 52.625C66.3628 51.8795 66.6979 50.9443 66.6979 49.9792C66.6979 49.0141 66.3628 48.0789 65.75 47.3333L44.9167 22.3333C44.2094 21.4824 43.1931 20.9473 42.0914 20.8458C40.9896 20.7442 39.8926 21.0844 39.0417 21.7917C38.1908 22.4989 37.6557 23.5152 37.5541 24.617C37.4525 25.7188 37.7928 26.8158 38.5 27.6667L57.125 50L39.125 72.3333C38.6155 72.9449 38.2918 73.6897 38.1923 74.4795C38.0928 75.2693 38.2217 76.071 38.5636 76.7899C38.9055 77.5088 39.4461 78.1146 40.1216 78.5359C40.7971 78.9571 41.579 79.176 42.375 79.1667Z" fill="#808080"/>
-                  </svg>
-            </div> -->
-            <div class="col-md-8 books container offset-md-2">
-                <div class="row">
-                    {% for book in books %}
-                    <div class="col-md-3 col-6 px-5 py-5 text-center">
-                        <a href="{% url 'bookchat:book-page' book.id %}"><img src="{{ book.book_cover.url }}" style="width: 100%;"></a>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-            <!-- <div class="col-2 right-arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" fill="none">
-                    <path d="M42.375 79.1667C42.9975 79.1688 43.6125 79.0314 44.1749 78.7646C44.7374 78.4978 45.2329 78.1084 45.625 77.625L65.75 52.625C66.3628 51.8795 66.6979 50.9443 66.6979 49.9792C66.6979 49.0141 66.3628 48.0789 65.75 47.3333L44.9167 22.3333C44.2094 21.4824 43.1931 20.9473 42.0914 20.8458C40.9896 20.7442 39.8926 21.0844 39.0417 21.7917C38.1908 22.4989 37.6557 23.5152 37.5541 24.617C37.4525 25.7188 37.7928 26.8158 38.5 27.6667L57.125 50L39.125 72.3333C38.6155 72.9449 38.2918 73.6897 38.1923 74.4795C38.0928 75.2693 38.2217 76.071 38.5636 76.7899C38.9055 77.5088 39.4461 78.1146 40.1216 78.5359C40.7971 78.9571 41.579 79.176 42.375 79.1667Z" fill="#808080"/>
-                  </svg>
-            </div> -->
+    <div class="books">
+        {% for book in books %}
+        <div class="book-info">
+            <a href="{% url 'bookchat:book-page' book.id %}"><img src="{{ book.book_cover.url }}"></a>
+            <span class="book-title">{{book.title}}</span>
+            <span class="book-author">{{book.author}}</span>
         </div>
+        {% endfor %}
     </div>
+
+</div>
+</div>
+</section>
+<section class="footer">
+    <img src="{% static 'bookchat/img/footer.svg' %}" class="footer-img" alt="...">
 </section>
 
 {% endblock %}

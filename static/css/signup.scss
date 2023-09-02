@@ -1,0 +1,85 @@
+.navbar {
+    display: none;
+}
+
+/* 입력란을 클릭했을 때 포커스 스타일 제거 */
+input:focus {
+    outline: none;
+    border: none;
+    /* 기타 원하는 스타일 설정 */
+}
+
+
+.background{
+    background-size: cover; /* 배경 이미지를 뷰포트에 맞게 확장 */
+    background-position: center; /* 배경 이미지를 중앙에 위치시킴 */
+    width: 100%;
+    height: 100vh; /* 화면 높이와 같게 설정 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-box {
+    width: 300px;
+    height: 360px;
+    border-radius: 7.211px;
+background: #FFF;
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-bottom: 30px;
+}
+
+.for-login {
+    margin-bottom: 10px;
+}
+
+.login-logo_name {
+    color: #3e4492;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: -0.64px;
+    margin-left: 3px;
+}
+
+.login-logo-icon {
+    width: 31px;
+height: 30px;
+flex-shrink: 0;
+text-align: center;
+margin-bottom: 10px;
+}
+
+.id-box {
+    position: relative;
+   
+    border-bottom: 1px solid #ccc;
+    margin-top: 25px;
+}
+
+.id-box input {
+    border: 0;
+    margin-bottom: 10px;
+}
+
+.id-box label {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    pointer-events: none;
+    transition: top 0.3s, left 0.3s, font-size 0.3s;
+}
+
+.login-button {
+    width: 197.194px;
+height: 35.057px;
+flex-shrink: 0;
+border-radius: 39.901px;
+background: #3E4492;
+color: white;
+margin-top: 40px;
+}

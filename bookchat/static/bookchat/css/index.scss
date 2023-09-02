@@ -1,63 +1,51 @@
-.menu {
-    padding: 10px 0 0px;
-}
-
-.btn-rounded-top {
-    border-radius: 15px 15px 0 0;
-}
-
-.sign button {
-    height: 36px;
-    padding: 6px 26.33px 8px 26px;
-}
-
-.body2 .div {
-    padding-bottom: 20px;
-}
-.body3 .div {
-    padding-bottom: 230px;
-}
-
-.footer {
-    visibility: hidden;
-    padding-top: 1px;
-}
-
-.footer-inner {
-    height: 194px;
+a {
+    text-decoration: none;
 }
 
 .body1 {
-    background: #F5E7E6;
+    background: #f5e7e6;
 }
 
+/* CSS 코드 */
+@keyframes brightnessAnimation {
+    0% {
+        filter: brightness(100%); /* 초기 상태 (밝음) */
+    }
+    50% {
+        filter: brightness(104%); /* 중간 상태 (밝아짐) */
+    }
+    100% {
+        filter: brightness(100%); /* 최종 상태 (원래 밝음) */
+    }
+}
 .thumbnail {
     padding-top: 50px;
     display: flex;
     justify-content: center;
+    height: 550px;
 }
 
 .thumbnail-texts {
-    width: 394px;
+    width: 30vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-bottom: 50px;
 }
 
 .thumbnail-title {
     color: #747474;
-    text-align: center;
     font-family: Noto Sans KR;
     font-size: 48px;
     font-style: normal;
     font-weight: 500;
     line-height: 22px; /* 45.833% */
     letter-spacing: -0.96px;
+    
 }
 
 .thumbnail-subtitle {
     color: #b5b5b5;
-    text-align: center;
     font-family: Noto Sans KR;
     font-size: 20px;
     font-style: normal;
@@ -69,7 +57,7 @@
 
 .thumbnail-explain {
     color: #000;
-    font-family: Lato;
+    font-family: 'Lato', sans-serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
@@ -80,7 +68,123 @@
 }
 
 .landing-img {
-    width: 510px;
-    height: 469px;
+    width: (480px / 1280px * 100vw); /* 510px를 1280px에 대한 vw로 변환 */
+    height: auto; /* 높이를 자동으로 조절하여 원래 비율 유지 */
     flex-shrink: 0;
+    animation: brightnessAnimation 2s ease-in-out infinite; /* 애니메이션 적용 */
+}
+
+/* CSS 코드 */
+@media (max-width: 768px) {
+    /* 화면 너비가 768px 이하일 때 적용됨 */
+    .thumbnail {
+        padding-top: 80px;
+        height: 400px;
+    }
+    .landing-img {
+        display: none; /* 이미지 숨김 */
+    }
+    .thumbnail-texts {
+        width: 60vw;
+    }
+    .thumbnail-title, .thumbnail-subtitle, .thumbnail-explain {
+        text-align: center;
+    }
+}
+
+
+.body2 {
+    height: 832px;
+    background: white;
+}
+
+.menus {
+    padding-top: 80px;
+    margin-left: 4vw;
+}
+
+.menu_buttons {
+    margin-left: 20px;
+    display: flex;
+}
+
+.menu_button {
+    display: flex;
+    padding: 7px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 999px;
+    border: 2px solid rgba(62, 68, 146, 0.50);
+    background: #FFF;
+    margin: auto 5px;
+    height: auto;
+}
+
+.menu_button.active {
+    background: #3e4492;
+}
+
+.menu_contents {
+    color: #3E4492;
+    text-align: center;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%; /* 12px */
+}
+
+.menu_contents.active{
+    color: #fff;
+}
+
+.book-sector {
+    margin: auto, 20px;
+}
+
+.books {
+    display: flex;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+.book-info {
+    display: flex;
+    flex-direction: column;
+    margin: auto 10px;
+}
+
+.book-info img {
+    border-radius: 10px;
+    width: 21vw;
+}
+
+.book-title {
+    color: #000;
+font-family: Noto Sans KR;
+font-size: 20px;
+font-style: normal;
+font-weight: 500;
+line-height: 100%; /* 20px */
+margin-top: 10px;
+}
+
+.book-author {
+    color: #595959;
+font-family: Noto Sans KR;
+font-size: 18px;
+font-style: normal;
+font-weight: 500;
+line-height: 100%; /* 18px */
+margin-top: 10px;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+}
+
+.footer-img {
+    width: 310px
 }

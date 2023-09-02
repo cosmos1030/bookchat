@@ -14,12 +14,17 @@
       <!-- 메시지가 표시될 영역 -->
     </div>
     <div class="user-input">
-      <input type="text" id="userMessage" placeholder="메시지를 입력하세요...">
-      <button type="button" id="submit">전송</button>
+      <button id="reset"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+        <path d="M7.5 16.6062C7.5 14.5437 8.3375 12.6687 9.7 11.3062L7.925 9.5312C6.125 11.3437 5 13.8437 5 16.6062C5 21.7062 8.8125 25.9062 13.75 26.5187V23.9937C10.2125 23.3937 7.5 20.3187 7.5 16.6062ZM25 16.6062C25 11.0812 20.525 6.6062 15 6.6062C14.925 6.6062 14.85 6.6187 14.775 6.6187L16.1375 5.2562L14.375 3.4812L10 7.8562L14.375 12.2312L16.1375 10.4687L14.7875 9.1187C14.8625 9.1187 14.9375 9.1062 15 9.1062C19.1375 9.1062 22.5 12.4687 22.5 16.6062C22.5 20.3187 19.7875 23.3937 16.25 23.9937V26.5187C21.1875 25.9062 25 21.7062 25 16.6062Z" fill="#376042"/>
+      </svg></button>
+      <div class="userMessage-box">
+        <input type="text" id="userMessage">
+        <button type="button" id="submit"><img src="{% static 'img/submit.svg' %}" class="img-fluid" alt="..."></button>
+      </div>
+
     </div>
   </div>
   <button id="end">토론 끝내기</button>
-  <button id="reset">대화 리셋</button>
   
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>

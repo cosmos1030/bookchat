@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="post" action="{% url 'common:signup' %}">
+    <label for="username">닉네임</label>
+    <input type="text" class="form-control" name="username" id="username">
+    <label for="password1">비밀번호</label>
+    <input type="password" class="form-control" name="password1" id="password1">
+    <label for="password2">비밀번호 확인</label>
+    <input type="password" class="form-control" name="password2" id="password2">
+    <label for="email">이메일</label>
+    <input type="text" class="form-control" name="email" id="email">
+    <button class="btn btn-dark">Create</button>
+</form>
+{% endblock %}

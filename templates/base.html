@@ -12,7 +12,12 @@
     <link rel="stylesheet" href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}">
     <!-- bookchat CSS -->
     <link href="{% sass_src 'css/common.scss' %}" rel="stylesheet" type="text/css" />
-    <link href="{% sass_src 'css/navbar.scss' %}" rel="stylesheet" type="text/css" />
+    <link href="{% sass_src 'css/navbar.scss' %}?v8" rel="stylesheet" type="text/css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
     {% block head %}
     {% endblock %}
 </head>

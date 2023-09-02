@@ -19,9 +19,6 @@ $primary: #6b63ff;
     height: 77px;
 } 
 
-button {
-    height: 50px;
-}
 
 .signup {
     color: white;
@@ -29,3 +26,7 @@ button {
 // .nav-link {
 //     color: black;
 // }
+
+a {
+    text-decoration: none;
+}

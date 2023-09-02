@@ -39,15 +39,12 @@ def result_page(request, id):
     })
 
 def my_page(request):
-    user = None
-    if request.user.is_authenticated:
-        user = request.user
-    user_profile = UserProfile.objects.get(user=user)
-    books = Book.objects.filter(user= user_profile)
-    return render(request, 'bookchat/my_page.html', {
-        'username': user.username,
-        'books': books
-    })
+    # user = None
+    # if request.user.is_authenticated:
+    #     user = request.user
+    # user_profile = UserProfile.objects.get(user=user)
+    # books = Book.objects.filter(user= user_profile)
+    return render(request, 'bookchat/my_page.html', {})
 
 @csrf_exempt
 def send_message(request, id):

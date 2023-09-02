@@ -113,14 +113,14 @@ document.querySelector('#reset').onclick = function (e){
   });
 }
 
-document.querySelector('#end').onclick = function (e){
-  axios.post(`/api/chat/${bookId}/end/`, {chatHistory})
-  .then(() => {
-      console.log("POST 요청이 성공했습니다.");
-      window.location.href = `/result-page/${bookId}/`;
-  }).catch(() => {
-      console.log("POST 요청이 실패했습니다.");
-  });
-}
+// document.querySelector('#end').onclick = function (e){
+//   axios.post(`/api/chat/${bookId}/end/`, {chatHistory})
+//   .then(() => {
+//       console.log("POST 요청이 성공했습니다.");
+//       window.location.href = `/result-page/${bookId}/`;
+//   }).catch(() => {
+//       console.log("POST 요청이 실패했습니다.");
+//   });
+// }
 
 export { chatHistory }

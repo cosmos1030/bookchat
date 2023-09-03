@@ -4,7 +4,7 @@
 {% load sass_tags %}
 
 {% block head %}
-<link href="{% sass_src 'css/login.scss' %}?v4" rel="stylesheet" type="text/css" />
+<link href="{% sass_src 'css/login.scss' %}?v5" rel="stylesheet" type="text/css" />
 
 {% endblock %}
 {% block content %}
@@ -26,7 +26,7 @@
                     <path d="M6.93567 8.49133C6.88012 8.49133 6.82536 8.48863 6.7711 8.4834L5.92302 9.37423C6.4331 9.57943 6.98885 9.62502 7.52308 9.50552C8.05731 9.38601 8.54714 9.10651 8.93337 8.70081C9.3196 8.29511 9.58568 7.78058 9.69945 7.21942C9.81322 6.65826 9.76981 6.07449 9.57447 5.5387L8.72639 6.42953C8.73137 6.48653 8.73394 6.54404 8.73394 6.6024C8.73406 6.85049 8.68764 7.09618 8.59731 7.32542C8.50698 7.55465 8.37453 7.76294 8.20752 7.93837C8.04051 8.1138 7.84222 8.25293 7.62399 8.34781C7.40575 8.44269 7.17186 8.49146 6.93567 8.49133Z" fill="black" fill-opacity="0.44"/>
                   </svg>
             </div>
-            
+            <div class="test-box"><a class="signup" href="{% url 'common:auto-login' %}">해커톤용 임시 로그인</a></div>
             <button class="login-button">로그인</button>
             <div class="signup-box"><a class="signup" href="{% url 'common:signup' %}">회원가입</a></div>
         </form>

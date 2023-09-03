@@ -23,7 +23,7 @@ input:focus {
 
 .login-box {
     width: 300px;
-    height: 360px;
+    height: 380px;
     border-radius: 7.211px;
 background: #FFF;
 display: flex;
@@ -75,6 +75,10 @@ margin-bottom: 10px;
     transition: top 0.3s, left 0.3s, font-size 0.3s;
 }
 
+.test-box {
+    margin-left: 80px;
+}
+
 .login-button {
     width: 197.194px;
 height: 35.057px;
@@ -82,7 +86,7 @@ flex-shrink: 0;
 border-radius: 39.901px;
 background: #3E4492;
 color: white;
-margin-top: 35px;
+margin-top: 25px;
 }
 
 .signup-box{

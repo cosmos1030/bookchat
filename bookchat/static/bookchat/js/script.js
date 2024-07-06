@@ -47,7 +47,8 @@ function displayMessage(sender, message) {
 const bookId = getBookIdFromUrl()
 
 const chatSocket = new WebSocket(
-  'wss://'
+  'ws://'
+  // 'wss://'
   + window.location.host
   + '/ws/chat/'
   + bookId
